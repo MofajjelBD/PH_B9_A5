@@ -184,6 +184,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Update the discounted price display
       grandPrice.textContent = discountedPrice;
+      couponArea.classList.add("hidden");
+
+      // Create a new <div> below totalPrice
+      const newDiv = document.createElement("div");
+      newDiv.id = "discountPrice";
+      newDiv.className =
+        "flex justify-between  font-Inter font-medium text-lg py-3 w-full border-b-2";
+      // Create and append <span> elements to the newDiv
+      const newSpan = document.createElement("span");
+      newSpan.className = "inline-flex";
+      newSpan.textContent = "Discount Price";
+      newDiv.appendChild(newSpan);
+
+      // Create and append <span1> elements to the newDiv
+      const newSpan1 = document.createElement("span");
+      newSpan1.className = "inline-flex gap-1";
+      newSpan1.textContent = `BDT ${discount}`;
+      newDiv.appendChild(newSpan1);
+
+      // Append the new <tr> to the table
+      priceArea.appendChild(newDiv);
     } else {
       // If the coupon code is invalid, show the original price
       grandPrice.textContent = originalPrice;
