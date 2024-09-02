@@ -35,6 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (seatInfo) {
         selectedSeatsTable.removeChild(seatInfo);
       }
+      const discountPrice = document.getElementById("discountPrice");
+
+      // Attach click event listeners to all elements with the class .seat
+      if (discountPrice) {
+        couponArea.classList.remove("hidden");
+        discountPrice.remove();
+      }
     } else if (selectedButtons.length <= maxSelected) {
       // If less than 4 buttons are selected, allow selecting more
       event.target.classList.add("bg-cGreen", "text-white", "hover:bg-cGreen");
@@ -52,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const classCell = document.createElement("td");
       classCell.className = "opacity-60";
-      classCell.textContent = "Economoy"; // Example class, can be dynamic
+      classCell.textContent = "Economy"; // Example class, can be dynamic
       newSeatRow.appendChild(classCell);
 
       const priceCell = document.createElement("td");
@@ -63,6 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Append the new <tr> to the table
       selectedSeatsTable.appendChild(newSeatRow);
+      const discountPrice = document.getElementById("discountPrice");
+
+      // Attach click event listeners to all elements with the class .seat
+      if (discountPrice) {
+        discountPrice.remove();
+        couponArea.classList.remove("hidden");
+      }
     } else {
       alert("Maximum 4 tickets book as per time.");
       return;
@@ -142,6 +156,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Update the discounted price display
       grandPrice.textContent = discountedPrice;
+      couponArea.classList.add("hidden");
+
+      // Create a new <div> below totalPrice
+      const newDiv = document.createElement("div");
+      newDiv.id = "discountPrice";
+      newDiv.className =
+        "flex justify-between  font-Inter font-medium text-lg py-3 w-full border-b-2";
+      // Create and append <span> elements to the newDiv
+      const newSpan = document.createElement("span");
+      newSpan.className = "inline-flex";
+      newSpan.textContent = "Discount Price";
+      newDiv.appendChild(newSpan);
+
+      // Create and append <span1> elements to the newDiv
+      const newSpan1 = document.createElement("span");
+      newSpan1.className = "inline-flex gap-1";
+      newSpan1.textContent = `BDT ${discount}`;
+      newDiv.appendChild(newSpan1);
+
+      // Append the new <tr> to the table
+      priceArea.appendChild(newDiv);
     } else if (couponCode === validCouponCode20) {
       // Calculate the discounted price (20% off)
       const discount = originalPrice * 0.2;

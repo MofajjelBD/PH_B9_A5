@@ -106,7 +106,7 @@
             <p class="text-white font-Inter text-lg leading-8 text-center px-4 my-3">Yes, you can run unit tests
               and
               view the results
-              directly
+              directlyTotal Price
               within the app. The integrated testing features allow for a streamlined .</p>
             <a href="#seats"
               class="btn btn-xs btn-md md:btn-md lg:btn-lg bg-[#1DD100] hover:bg-cDark text-cPrimary text-xl font-bold border border-cGreen hover:border-cGreen mt-2 mb-8 px-8 rounded-xl">Buy
@@ -406,12 +406,15 @@
                 <tbody id="selectedSeatsBody">
                 </tbody>
               </table>
-              <div class="flex justify-between  font-Inter font-medium text-lg py-3">
-                <span class="inline-flex ">Total Price</span>
-                <span class="inline-flex gap-1">BDT <span id="totalPrice">0</span></span>
+              <div id="priceArea">
+                <div class="flex justify-between  font-Inter font-medium text-lg py-3">
+                  <span class="inline-flex ">Total Price</span>
+                  <span class="inline-flex gap-1">BDT <span id="totalPrice">0</span></span>
+                </div>
               </div>
               <label
-                class="input flex items-center h-14 pr-2 focus:outline-none focus-within:outline-none focus-within:border-cGreen">
+                class="input flex items-center h-14 pr-2 focus:outline-none focus-within:outline-none focus-within:border-cGreen"
+                id="couponArea">
                 <input type="text" class="grow text-sm" placeholder="Have any coupon?" id="couponCode" />
                 <button id="applyCoupon" class="btn btn-active bg-[#1DD100] col-span-1 text-sm font-semibold font-Inter min-h-10 h-10
                   text-white">Apply</button>
